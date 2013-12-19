@@ -17,19 +17,23 @@ Capture video;
 void setup()
 {
   // init
-  size(800, 600);
+  size(displayWidth, displayHeight);
   
-  video = new Capture(this,width,height);
+  video = new Capture(this, 1024,768);
   video.start();
   //  frameRate(3);
-  int widthX= 50;
-  int widthY= 50;
+  //Size of the triangles
+  int widthX= 25;
+  int widthY= 25;
+  //#'s of triangles to display
+  int row = 30;
+  int column = 40;
   int widthXhalf= widthX/2;
   int widthYhalf= widthY/2;
   triangles = new ArrayList<TriangleClass>();  // Create an empty ArrayList
   // the broad side up
-  for (int y1=0; y1 < 12*widthY; y1+=widthY) {
-    for (int x1=0; x1 < 17*widthX; x1+=widthX) {
+  for (int y1=0; y1 < row*widthY; y1+=widthY) {
+    for (int x1=0; x1 < column*widthX; x1+=widthX) {
       // for the Color :
       color MyC1 = color( random (255), random (255), random (255)); 
       //color MyC1 = color( 22, (x1 % 2) == 0 ? 0 : 255, 22 );
@@ -45,8 +49,8 @@ void setup()
   }
   // 
   // the broad side down
-  for (int y1=0; y1 < 12*widthY; y1+=widthY) {
-    for (int x1=0; x1 < 17*widthX; x1+=widthX) {
+  for (int y1=0; y1 < row*widthY; y1+=widthY) {
+    for (int x1=0; x1 < column*widthX; x1+=widthX) {
       // for the Color :
       //color MyC1 = color(  (x1 % 2) == 0 ? 0 : 255, 22, 22);
       color MyC1 = color( random (255), random (255), random (255));  
