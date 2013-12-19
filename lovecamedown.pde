@@ -23,11 +23,11 @@ void setup()
   video.start();
   //  frameRate(3);
   //Size of the triangles
-  int widthX= 25;
-  int widthY= 25;
+  int widthX= 35;
+  int widthY= 35;
   //#'s of triangles to display
-  int row = 30;
-  int column = 40;
+  int row = 20;
+  int column = 30;
   int widthXhalf= widthX/2;
   int widthYhalf= widthY/2;
   triangles = new ArrayList<TriangleClass>();  // Create an empty ArrayList
