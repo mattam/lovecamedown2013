@@ -84,7 +84,7 @@ void draw()
     myCurrentTriangle = triangles.get(i);
     color blue = color(0, 152, 153);
     color c = video.pixels[(video.width-myCurrentTriangle.z1) + myCurrentTriangle.z2*video.width];
-    color bluetint = blendColor(int(brightness(c)), blue, ADD);
+    color bluetint = blendColor(c, blue, ADD);
     myCurrentTriangle.myColor = bluetint;
     myCurrentTriangle.display();
   } // for
