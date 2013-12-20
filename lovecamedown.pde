@@ -19,7 +19,7 @@ void setup()
   // init
   size(displayWidth, displayHeight);
   
-  video = new Capture(this, 1024,768);
+  video = new Capture(this, displayWidth,displayHeight);
   video.start();
   //  frameRate(3);
   //Size of the triangles
@@ -53,7 +53,7 @@ void setup()
     for (int x1=0; x1 < column*widthX; x1+=widthX) {
       // for the Color :
       //color MyC1 = color(  (x1 % 2) == 0 ? 0 : 255, 22, 22);
-      color MyC1 = color( random (255), random (255), random (255));  
+      color MyC1 = color( random (0), random (0), random (255));  
       // color MyC1 = color (0, 255, 0);
       // color MyC1 = color (0);
       // A new TriangleClass object is added to the ArrayList (by default to the end)
@@ -82,7 +82,10 @@ void draw()
   for (int i=0; i < triangles.size(); i++) {
     // get object from ArrayList
     myCurrentTriangle = triangles.get(i);
-    myCurrentTriangle.myColor = video.pixels[(video.width-myCurrentTriangle.z1) + myCurrentTriangle.z2*video.width];
+    color blue = color(0, 152, 153);
+    color c = video.pixels[(video.width-myCurrentTriangle.z1) + myCurrentTriangle.z2*video.width];
+    color bluetint = blendColor(int(brightness(c)), blue, ADD);
+    myCurrentTriangle.myColor = bluetint;
     myCurrentTriangle.display();
   } // for
 } // func
