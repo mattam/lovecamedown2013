@@ -27,7 +27,7 @@ void setup()
   int widthY= 35;
   //#'s of triangles to display
   int row = 20;
-  int column = 30;
+  int column = 35;
   int widthXhalf= widthX/2;
   int widthYhalf= widthY/2;
   triangles = new ArrayList<TriangleClass>();  // Create an empty ArrayList
@@ -82,7 +82,7 @@ void draw()
   for (int i=0; i < triangles.size(); i++) {
     // get object from ArrayList
     myCurrentTriangle = triangles.get(i);
-    myCurrentTriangle.myColor = video.pixels[myCurrentTriangle.z1 + myCurrentTriangle.z2*video.width];
+    myCurrentTriangle.myColor = video.pixels[(video.width-myCurrentTriangle.z1) + myCurrentTriangle.z2*video.width];
     myCurrentTriangle.display();
   } // for
 } // func
